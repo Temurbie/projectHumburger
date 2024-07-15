@@ -1,0 +1,25 @@
+<div class="container">
+    <mat-card class="example-card mt-3" appearance="outlined">
+        <mat-card-header>
+          <img  mat-card-avatar class="example-header-image" [src]="card.imgLogo" alt="">
+          <mat-card-title>{{card.title}} </mat-card-title>
+          <mat-card-subtitle>{{card.subTitle}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="card.imgMain" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            {{card.desc}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions class="mat-card">
+          <div class="text-start price">{{card.price | currency}}</div>
+          <i *ngIf="card.sale > 0" class="sale">{{card.price - (card.price / 100) * card.sale | currency}}</i>
+          <div class="buttons">
+            <button mat-button class="addIcon" (click)="addCard(card)" > <mat-icon >add_shopping_cart</mat-icon> <span #span>1</span> </button>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <mat-icon>favorite</mat-icon>
+          </button>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+</div>

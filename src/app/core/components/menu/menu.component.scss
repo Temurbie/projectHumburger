@@ -1,0 +1,47 @@
+::ng-deep mat-tab-header{
+    background-color: rgb(196, 228, 239);
+}
+.example-card {
+    max-width: 300px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://th.bing.com/th/id/OIP.g_EYshV4TBrKFonMmN2KEgHaE7?rs=1&pid=ImgDetMain');
+    background-size: cover;
+  }
+  .card-action{
+    display: flex;
+    justify-content: end;
+  }
+  .card-container{
+    margin: 0 auto;
+  }
+  .btn-star{
+    border: none;
+    
+    background-color: #fff;
+    margin: 0 0;
+    padding: 0 0;
+    mat-icon{
+      color: rgb(237, 208, 21);
+      &:hover{
+        color: rgb(201, 176, 13);
+      }
+    }
+  }
+  .box{
+    width: 50%;
+    height: 250px;
+    color: #161414;
+    background-color: rgb(133, 230, 205);
+  }
+  .card-container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: calc(100vw - 10px);
+    height: calc(100vh - 183px)
+  }
+  .appCard{
+    height: calc(100vw - 1000px) !important; 
+  }

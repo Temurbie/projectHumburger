@@ -1,0 +1,24 @@
+<mat-tab-group>
+    <mat-tab label="First"> 
+      <div class="card-container">
+        <ng-container *ngFor="let fastFood of fastFoods" class="ngContainer">
+          <app-card [card]="fastFood" class="appCard" ></app-card> 
+        </ng-container>
+      </div>
+    </mat-tab>
+    <mat-tab label="Second"> 
+      <div class="card-container">
+        <ng-container *ngFor="let burgerSet of setBurgers">
+          <app-card [card]="burgerSet"  class="appCard" ></app-card> 
+        </ng-container>
+      </div>
+    </mat-tab>
+    <mat-tab label="Third"> 
+      <div class="card-container">
+        <ng-container *ngFor="let ichimlik of ichimliklar">
+          <app-card [card]="ichimlik"  class="appCard" ></app-card> 
+        </ng-container>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+  
