@@ -1,0 +1,95 @@
+@import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
+
+body {
+    background-color: #eee;
+    font-family: 'Calibri', sans-serif !important;
+}
+
+.mt-100 {
+    margin-top: 100px;
+
+}
+
+
+.card {
+    margin-bottom: 30px;
+    border: 0;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    letter-spacing: .5px;
+    border-radius: 8px;
+    -webkit-box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, .05);
+    box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, .05);
+}
+
+.card .card-header {
+    background-color: #fff;
+    border-bottom: none;
+    padding: 24px;
+    border-bottom: 1px solid #f6f7fb;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+
+
+
+.card .card-body {
+    padding: 30px;
+    background-color: transparent;
+}
+
+.btn-primary,
+.btn-primary.disabled,
+.btn-primary:disabled {
+    background-color: #4466f2 !important;
+    border-color: #4466f2 !important;
+}
+
+/// Classes For cart Items
+.wrapper {
+    height: 100%;
+}
+
+// main-section
+
+.main-section {
+    background-color: rgb(255, 255, 255)
+}
+
+.img-product {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px;
+    box-shadow: 0px 4px 18px -4px rgba(0, 0, 0, 1);
+}
+
+.for-large_width {
+    background-color: rgb(224, 232, 250);
+    height: calc(100vh - 120px);
+}
+
+.for-small_width {
+    display: none;
+    height: calc(100vh - 120px);
+}
+
+@media (max-width: 768px) {
+    .img-product {
+        width: 64px;
+        height: 64px;
+    }
+
+    .for-large_width {
+        display: none;
+    }
+
+    .for-small_width {
+        display: inline-block;
+    }
+}

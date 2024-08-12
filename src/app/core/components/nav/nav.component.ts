@@ -7,7 +7,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { AnimationService } from '../../../share/animationService/animation.service';
+import { map } from 'rxjs';
 import { CardInterface } from '../menu/card/models/card-interface';
+import { AuthService } from '../../service/auth/auth.service';
+
 
 
 @Component({
@@ -30,21 +33,24 @@ import { CardInterface } from '../menu/card/models/card-interface';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private aminService: AnimationService){}
+  constructor(
+    private aminService: AnimationService,
+    private authService: AuthService
+  ) { }
 
-  @Input() increment:number  = 0
+  @Input() increment: number = 0;
+  products: CardInterface[] = [];
+  foundIdexProductsList?: number;
+  foundIndexGetProduct?: number;
+  isLogin: boolean = true;
 
 
   ngOnInit(): void {
-    // this.aminService.sendIncrement$.subscribe((increment) =>{
-    //   this.increment = increment
-    // })
-
-    this.aminService.prodocts$.subscribe((products)=>{
-      this.increment = products.length
+    this.authService.isLoginInUser.subscribe((bool) => {
+      this.isLogin = bool
     })
-   
-    
+    this.aminService.sendIncrement$.subscribe((increment) => {
+      this.increment = increment
+    })
   }
-
 }

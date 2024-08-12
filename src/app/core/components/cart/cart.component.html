@@ -1,11 +1,111 @@
-<div class="container">
-    <div class="row">
-        <div class="col-6">
-            <ng-container *ngFor="let product of cartProductsList">
-                <p>{{product.price}}</p>
-                <p>({{ product.quantity }})</p>
-                <p>{{ product.id }}</p>
-            </ng-container>
+<ng-container *ngIf="haveCartProduct === true">
+    <div class="container-fluid  mt-100">
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Cart</h5>
+                    </div>
+                    <div class="card-body cart">
+                        <div class="col-sm-12 empty-cart-cls text-center">
+                            <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130"
+                                class="img-fluid mb-4 mr-3">
+                            <h3><strong>Your Cart is Empty</strong></h3>
+                            <h4>Add something to make me happy :)</h4>
+                            <a href="#" class="btn btn-primary cart-btn-transform m-3" data-abc="true">continue
+                                shopping</a>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="haveCartProduct === false">
+    <div class="wrapper">
+        <div class="for-large_width">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-12 col-xl-8 main-section p-4 mt-5">
+                        <div class="row ">
+                            <div class="col-6 text-start mt-4">
+                                <h4>Shoppong Cart</h4>
+                            </div>
+                            <div class="col-6 text-end mt-4">
+                                <h4> {{item}} <span>Items</span></h4>
+                            </div>
+                        </div>
+                        <span>
+                            <hr>
+                        </span>
+                        <div class="row">
+                            <div class="col-3 col-md-6">
+                                <h6>Product Detalis</h6>
+                            </div>
+                            <div class="col-3 col-md-2 text-start text-md-center">
+                                <h6>Quantity</h6>
+                            </div>
+                            <div class="col-3 col-md-2 text-start text-md-center">
+                                <h6>Price</h6>
+                            </div>
+                            <div class="col-3 col-md-2  text-start text-md-end">
+                                <h6>Total</h6>
+                            </div>
+                        </div>
+                        <ng-container *ngFor="let product of cartProductsList">
+                            <div class="row" *ngIf="product.quantity > 0">
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <img class="img-product" src="{{product.imgLogo}}" alt="Logo">
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <h6>{{product.title}}</h6>
+                                            <span>{{product.category}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2 text-md-center">
+                                    <div class="quantity">
+                                        <button class="btn button" (click)="dinc(product)">-</button>
+                                        {{product.quantity}}
+                                        <button class="btn button" (click)="inc(product)">+</button>
+                                    </div>
+                                </div>
+                                <div class="col-2 text-md-center">
+                                    {{product.price | currency}}
+                                </div>
+                                <div class="col-2 text-md-end">
+                                    {{(product.price - (product.price / 100) * product.sale) * product.quantity|
+                                    currency}}
+                                </div>
+                                <span>
+                                    <hr>
+                                </span>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="for-small_width">
+            <div class="container">
+                <ng-container *ngFor="let product of cartProductsList">
+                    {{product.sale}}
+                    <img class="img-product" src="{{product.imgLogo}}" alt="">
+                    {{product.quantity}}
+                </ng-container>
+            </div>
         </div>
     </div>
-</div>
+</ng-container>

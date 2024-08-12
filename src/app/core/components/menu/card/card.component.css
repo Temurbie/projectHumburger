@@ -1,0 +1,46 @@
+.example-card {
+  max-width: 300px;
+  margin: 10px 0;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.example-card:hover {
+  box-shadow: 1px 5px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+.mat-card {
+  display: flex;
+  justify-content: space-between;
+}
+.mat-card .buttons {
+  display: flex;
+  justify-content: end;
+}
+.mat-card .price {
+  -webkit-text-decoration: line-through red 3px;
+          text-decoration: line-through red 3px;
+  font-style: italic;
+  font-weight: 500;
+}
+.mat-card .sale {
+  font-weight: 700;
+}
+
+.favorite-icon {
+  color: red;
+}
+
+.addIcon {
+  background-color: red;
+}
+.addIcon mat-icon {
+  color: #fff;
+}
+
+.card-items {
+  display: flex;
+  justify-content: space-between;
+}/*# sourceMappingURL=card.component.css.map */

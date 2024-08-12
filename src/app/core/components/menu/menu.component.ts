@@ -8,6 +8,7 @@ import { CardInterface } from './card/models/card-interface';
 import { CardComponent } from './card/card.component';
 
 
+
 @Component({
   selector: 'app-menu',
   standalone: true,
@@ -44,6 +45,7 @@ export class MenuComponent implements OnInit, OnDestroy{
     this.sub$.next(null);
     this.sub$.complete
   }
+ 
 }
   
   

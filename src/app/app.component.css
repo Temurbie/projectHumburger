@@ -1,0 +1,12 @@
+main {
+  height: calc(100% - 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 599px) {
+  main {
+    height: calc(100% - 56px);
+  }
+}/*# sourceMappingURL=app.component.css.map */

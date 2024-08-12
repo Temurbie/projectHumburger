@@ -35,13 +35,22 @@
     color: #161414;
     background-color: rgb(133, 230, 205);
   }
-  .card-container{
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    width: calc(100vw - 10px);
-    height: calc(100vh - 183px)
-  }
+
   .appCard{
+    max-width: 100vw;
     height: calc(100vw - 1000px) !important; 
   }
+  .test{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+  }
+  @media (max-width:992px) {
+    .test{
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+  }
+
+  

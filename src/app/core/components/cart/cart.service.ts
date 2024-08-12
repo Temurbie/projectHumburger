@@ -16,7 +16,21 @@ export class CartService implements OnInit {
     
     
   }
-
+  quantity(product : ProductInCart){
+    let incrementValue = 1;
+    let pro = this.cartProducts.find(p => p.id === product.id);
+    if(pro){
+      pro.quantity += incrementValue
+    }
+  }
+  dinc(product : ProductInCart){
+    const decrementValue = 1;
+    let  decrement = this.cartProducts.find(p => p.id === product.id)
+    if(decrement && decrement.quantity > 0){
+      decrement.quantity -= decrementValue;
+    }
+  
+  }
 
   addCartProduct(product : ProductInCart){
     // debugger
@@ -30,16 +44,15 @@ export class CartService implements OnInit {
     
     if(findIdProduct){
       this.cartProducts[foundIndex!].quantity += 1
-      console.log(product.quantity);
     }else{
       product.quantity = 1
-      this.cartProducts.push(product);
+      this.cartProducts.push(product);      
     }
   
     this.cartProducts$.next(this.cartProducts);
-
-  
-    
   }
 
+  getItems(){
+    return this.cartProducts
+  }
 } 

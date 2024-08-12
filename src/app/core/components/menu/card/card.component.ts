@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { CardInterface, ProductInCart } from './models/card-interface';
 import { AnimationService } from '../../../../share/animationService/animation.service';
 import { CartService } from '../../cart/cart.service';
+import { AnimateDirective } from '../../../directives/animate.directive';
 
 @Component({
   selector: 'app-card',
@@ -14,20 +15,22 @@ import { CartService } from '../../cart/cart.service';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    CommonModule
+    CommonModule,
+    AnimateDirective
   ],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
-export class CardComponent implements OnInit{
-  constructor(private animeService: AnimationService, private cartService : CartService){}
+export class CardComponent implements OnInit {
+  constructor(private animeService: AnimationService, private cartService: CartService) { }
 
   @Input() card!: CardInterface;
-  
-  ngOnInit(): void {;
+
+  ngOnInit(): void {
+    ;
   }
 
-  addCard(card: CardInterface){
+  addCard(card: CardInterface) {
     this.animeService.addProduct(card);
     this.cartService.addCartProduct(card as ProductInCart);
   }

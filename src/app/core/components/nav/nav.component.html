@@ -1,8 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="'navigation'"
-      mode='over' 
-      opened='false'>
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="'navigation'" mode='over' opened='false'>
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list id="mat-list">
       <a class="nav-link">Order Burger</a>
@@ -13,23 +10,23 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary" class="mat-toolbar">
-      <button
-          type="button"
-          aria-label="Toggle sidenav"
-          mat-icon-button
-          (click)="drawer.toggle()"
-          id="toggle-button">
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-          
-        </button>
-      <span id="title-burger">Burgeritto <img src="https://th.bing.com/th/id/OIP.8MJgw49NgTeBLs1BFzqS0gHaHa?rs=1&pid=ImgDetMain" alt="logo-Burger"></span>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" id="toggle-button">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+
+      </button>
+      <span id="title-burger">Burgeritto <img
+          src="https://th.bing.com/th/id/OIP.8MJgw49NgTeBLs1BFzqS0gHaHa?rs=1&pid=ImgDetMain" alt="logo-Burger"></span>
       <div class="space"></div>
       <div class="link-container">
         <a class="nav-link" routerLink="order" routerLinkActive>Order Burger</a>
-        <a class="nav-link" routerLink="menu" routerLinkActive >Menu</a>
-        <a class="nav-link" routerLink="contact" routerLinkActive >Contact</a>
+        <a class="nav-link" routerLink="menu" routerLinkActive>Menu</a>
+        <a class="nav-link" routerLink="contact" routerLinkActive>Contact</a>
+        <ng-template #login>
+          <a class="nav-link" routerLink="login" routerLinkActive>Login</a>
+        </ng-template>
+        <a class="nav-link" routerLink="profile" routerLinkActive *ngIf="isLogin; else login">Profile</a>
         <a class="nav-link cart" routerLink="cart" routerLinkActive>Cart <mat-icon> shopping_cart</mat-icon>
-        <span *ngIf="increment > 0" class="increment">{{increment}}</span>
+          <span *ngIf="increment > 0" class="increment">{{increment}}</span>
         </a>
       </div>
     </mat-toolbar>
