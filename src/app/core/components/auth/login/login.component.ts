@@ -3,6 +3,7 @@ import { AnimateDirective } from '../../../directives/animate.directive';
 import { gsap } from 'gsap';
 import SplitType from 'split-type'
 import { isPlatformBrowser } from '@angular/common';
+import { style } from '@angular/animations';
 // import { ScrollTrigger } from 'gsap/all';
 @Component({
   selector: 'app-login',
@@ -49,16 +50,21 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   leftGoAnime() {
-    gsap.to('.img', {
-      x: 700,
+    gsap.fromTo('.img', {
+      display: "inline-block",
+      x: 0,
       duration: 3,
+    },
+    {
+      x: 1000,
+      display: "none",
+      // visibility: "hidden",
       scrollTrigger: {
         trigger: '.img',
-        start: 'top top',
+        start: 'top 10%',
         markers: true,
         scrub: true,
-        pin: true
-
+        pin: true,
       }
     })
   }
@@ -69,11 +75,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
       duration: 3,
       scrollTrigger: {
         trigger: '.info',
-        start: 'top top',
+        start: 'top 10%',
         markers: true,
         scrub: true,
         pin: true
-
 
       }
     })
