@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/weather",
+            "outputPath": "dist/projectHamburger",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -34,25 +34,22 @@
               }
             ],
             "styles": [
-              "src/styles.scss",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.scss"
             ],
             "scripts": [
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+              
             ],
             "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "prerender": false,
+            "ssr": false
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "1MB",
+                  "maximumError": "4MB"
                 },
                 {
                   "type": "anyComponentStyle",

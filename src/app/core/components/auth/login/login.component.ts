@@ -3,7 +3,7 @@ import { AnimateDirective } from '../../../directives/animate.directive';
 import { gsap } from 'gsap';
 import SplitType from 'split-type'
 import { isPlatformBrowser } from '@angular/common';
-import { style } from '@angular/animations';
+
 // import { ScrollTrigger } from 'gsap/all';
 @Component({
   selector: 'app-login',

@@ -27,11 +27,11 @@
 .info{
     color: #fff;
     text-align: center;
-    h5{
-        font-size: 64px;
-    }
 }
 
+h5{
+    font-size: 64px;
+}
 @media (max-width:765px) {
     #hamburger{
         position: relative;
@@ -46,12 +46,12 @@
         text-align: center;
         display: inline-block;
         
-        .info{
-            color: #fff;
-            h5{
-                font-size: 32px;
-            }
-        }
+    }
+    .info{
+        color: #fff;
+    }
+    h5{
+        font-size: 32px;
     }
 }
 @media (min-width : 766px) and (max-width: 1200px) {
@@ -68,23 +68,23 @@
         display: flex;
         justify-content: space-between;
         
-        .info{
-            color: #fff;
-            h5{
-                font-size: 32px;
-            }
-        }
+    }
+    .info{
+        color: #fff;
+    }
+    h5{
+        font-size: 32px;
     }
 }
 
 .login-wrapper{
     margin-top: 500px;
     background-color: red;
-    .login-container{
-        width: 500px;
-        height: 800px;
-        background-color: white;
-    }
+}
+.login-container{
+    width: 500px;
+    height: 800px;
+    background-color: white;
 }
 
   
