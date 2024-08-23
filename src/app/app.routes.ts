@@ -4,6 +4,11 @@ import { authGuard } from './core/components/auth/authGuards/auth.guard';
 
 export const routes: Routes = [
     {
+        path: "home",
+        loadComponent: () => import('./core/components/home/home.component')
+        .then(m => m.HomeComponent)
+    },
+    {
         path: 'menu',
         loadComponent: () => import('./core/components/menu/menu.component')
             .then(mod => mod.MenuComponent)
@@ -35,8 +40,13 @@ export const routes: Routes = [
             .then(m => m.LoginComponent)
     },
     {
+        path: 'signin',
+        loadComponent: ()=> import('./core/components/auth/signin/signin.component')
+        .then(m => m.SigninComponent)
+    },
+    {
         path: '**',
-        redirectTo: 'menu' // yoki kerakli default yo'nalishga yo'naltiring
+        redirectTo: 'home' // yoki kerakli default yo'nalishga yo'naltiring
     }
 ];
 

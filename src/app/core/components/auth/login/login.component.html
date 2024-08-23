@@ -2,7 +2,7 @@
    <div class="container">
       <div class="main-itmes pt-5">
          <div class="info">
-            <h5 class="p-5 text" id="textTest" animate > Bizni alangalik Tanlaganingizdan Benihoyat Ma'mnunmiz</h5>
+            <h5 class="p-5 text" id="textTest" animate > Bizni Tanlaganingizdan Benihoyat Ma'mnunmiz</h5>
          </div>
          <div class="img-right" >
             <img id="hamburger" class="img" appAnimate  src="assets/hamburger.png" alt="">
@@ -11,11 +11,59 @@
       <div class="login-wrapper">
          <div class="login-container">
             <div class="login-header">
-               <h4 class="text-center">Ruyhatdan O'tish</h4>
+               <h4 class="text-center pt-3">Ruyhatdan O'tish</h4>
             </div>
-         </div>
-         <div class="login-body">
-
+            <div class="login-body">
+               <form  [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                  <div class="row formWrapper">
+                     <div class="col-12 text-center">
+                        <input type="text" class="formInput inputName" name="name" id="naem" placeholder="Isim..." formControlName="ism"
+                        [ngClass]="{'error': f.ism.invalid && f.ism.touched}"
+                        >
+                        <span class="errorSpan" *ngIf="f['ism'].errors?.['required'] &&  f.ism.invalid && f.ism.touched">Tuldirish shart</span>
+                     </div>
+                     <div class="col-12 text-center">
+                        <input type="text" class="formInput inputName" name="name" id="naem" placeholder="Familiya..." formControlName="lName"
+                        [ngClass]="{'error' : f['lName'].invalid &&  f['lName'].touched}"
+                        >
+                        <span class="errorSpan" *ngIf="f['lName'].errors?.['required'] && f['lName'].invalid &&  f['lName'].touched">Tuldirish shart</span>
+                     </div>
+                     <div class="col-12 text-center">
+                        <input type="text" class="formInput inputName" name="name" id="naem" placeholder="Email..." formControlName="email"
+                        [ngClass]="{'error': f['email'].invalid && f.email.touched}">
+                        <div *ngIf="f.email.invalid && f.email.touched">
+                           <small class="errorSpan" *ngIf="f['email'].errors?.['required']">Tuldirish shart</small>
+                           <small class="errorSpan" *ngIf="f['email'].errors?.['pattern']">Email belgisi bulsin</small>
+                        </div>
+                     </div>
+                     <div class="col-12 text-center">
+                        <input type="text" class="formInput inputName" name="name" id="naem" placeholder="Parol..." formControlName="password"
+                        [ngClass]="{'error': f['password'].invalid &&f['password'].touched}"
+                        >
+                        <div *ngIf="f['password'].invalid && f.password.touched">
+                           <span class="errorSpan" *ngIf=" f['password']?.errors?.['required'] f['password'].invalid && f.password.touched ">Tuldirish Shart</span>
+                           <span class="errorSpan" *ngIf="f['password'].errors?.['minlength']">Belgi 7 tadan</span>
+                        </div>
+                     </div>
+                     <div class="col-12 text-center">
+                        <input type="text" class="formInput inputName" name="name" id="naem" placeholder="Takror Parol..." formControlName="cPassword"
+                        [ngClass]="{'error':  f['cPassword'].touched && f.cPassword.invalid}"
+                        >
+                        <div *ngIf="f.cPassword.invalid && f.cPassword.touched">
+                           <span class="errorSpan" *ngIf="f['cPassword']?.errors?.['required']">Tuldirish Shart</span>
+                           <span class="errorSpan" *ngIf="f['cPassword']?.errors?.['minlength']">Belgi 7 tadan </span>
+                           <span class="errorSpan" *ngIf="f['cPassword']?.errors?.['mismatch']" >Parol Bir Hil Bulsin</span>
+                        </div>
+                     </div>
+                     <div class="col-12 text-center">
+                        <button type="submit" class="formButton" >Utish</button>
+                     </div>
+                     <div>
+                        <p>Allaqachon Ruyhatdan<a class="linkForSignin mt-3" routerLink="/signin"> Utganman </a></p>
+                     </div>
+                  </div>
+               </form>
+            </div>
          </div>
       </div>
    </div>
