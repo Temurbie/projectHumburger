@@ -4,8 +4,8 @@ import { gsap } from 'gsap';
 import SplitType from 'split-type'
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormBuilder,  Validators, ReactiveFormsModule, ValidatorFn, AbstractControl, ValidationErrors, AbstractControlOptions } from '@angular/forms';
-import { Login } from './login';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../../service/auth/auth.service';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
   private el: ElementRef,
   private ngZone: NgZone, 
   @Inject(PLATFORM_ID) private platformId: Object,
-  private fb : FormBuilder
+  private fb : FormBuilder,
+  private authService : AuthService
 ) { }
   
 
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     }
   }
   ngOnInit(): void {
-    console.log(this.userForm.controls)
+    // console.log(this.userForm.controls)
   }
   
   checkPassword: ValidatorFn = (formGroup: AbstractControl): ValidationErrors | null => {
@@ -55,11 +56,11 @@ export class LoginComponent implements OnInit, AfterViewInit {
   
   
     userForm  = this.fb.group({
-    ism: [ '', Validators.required],
-    lName: [ '', Validators.required],
-    email: [ '', [Validators.required, Validators.minLength(10), Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$")]],
-    password: ['', [Validators.required, Validators.minLength(7)]],
-    cPassword: ['', [Validators.required, Validators.minLength(7)]]
+    ism: [ null, Validators.required],
+    lName: [ null, Validators.required],
+    email: [ null, [Validators.required, Validators.minLength(10), Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$")]],
+    password: [null, [Validators.required, Validators.minLength(7)]],
+    cPassword: [null, [Validators.required, Validators.minLength(7)]]
   }, { validators: this.checkPassword});
 
   textAnime() {
@@ -130,20 +131,42 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
   
 
-  onSubmit(){ 
+  // onSubmit(){ 
+  //   if(this.userForm.valid){
+
+  //     const { ism, password, email } = this.userForm.value;
+
+  //     const formData = { ism, password, email};
+      
+  //     localStorage.setItem(`${formData.email}`, JSON.stringify(formData))
+      
+  //     alert(`Ruyhatdan Muovfaqatli uttingiz`)
+  //     this.userForm.reset();
+
+  //   }else{
+  //     alert(`Parol yoki Email hato`)
+  //   }
+  // }
+  onSubmit(){
     if(this.userForm.valid){
-
-      const { ism, password, email } = this.userForm.value;
-
-      const formData = { ism, password, email};
-      
-      localStorage.setItem(`user${formData.ism}`, JSON.stringify(formData))
-      
-      alert(`Ruyhatdan Muovfaqatli uttingiz`)
-      this.userForm.reset();
-
+      const userName = this.userForm.value.ism ?? '';
+      const lName = this.userForm.value.lName ?? '';
+      const email = this.userForm.value.email ?? '';
+      const password = this.userForm.value.password ?? '';
+      const cPassword = this.userForm.value.cPassword ?? '';
+      this.authService.register(userName, lName, email , password , cPassword).subscribe(response =>{
+        console.log(response);
+        localStorage.setItem("token", response.token);
+        console.log(`saveTokken ${response.token}`);
+        alert(`Ruyhatdan Utdiz`)
+      },
+      error =>{
+        alert(JSON.stringify(error));
+        
+      })
+      // this.userForm.reset();
     }else{
-      alert(`Parol yoki Email hato`)
+      alert(`Maydonni tuldiring`)
     }
   }
 

@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CardInterface, ProductInCart } from '../menu/card/models/card-interface';
+import { CardInterface, ProductInCart } from '../../interfaces/card-interface';
 import { CommonModule } from '@angular/common';
-import { CartService } from './cart.service';
-import { AnimationService } from '../../../share/animationService/animation.service';
+import { CartService } from '../../service/cart/cart.service';
+import { AnimationService } from '../../service/animationService/animation.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

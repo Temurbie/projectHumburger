@@ -6,9 +6,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { AnimationService } from '../../../share/animationService/animation.service';
+import { AnimationService } from '../../service/animationService/animation.service';
 import { map } from 'rxjs';
-import { CardInterface } from '../menu/card/models/card-interface';
+import { CardInterface } from '../../interfaces/card-interface';
 import { AuthService } from '../../service/auth/auth.service';
 
 
@@ -52,5 +52,6 @@ export class NavComponent implements OnInit {
     this.aminService.sendIncrement$.subscribe((increment) => {
       this.increment = increment
     })
+   
   }
 }

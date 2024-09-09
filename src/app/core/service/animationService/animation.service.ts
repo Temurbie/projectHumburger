@@ -1,7 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
-import { subscribe } from 'diagnostics_channel';
-import { BehaviorSubject, find, identity } from 'rxjs';
-import { CardInterface } from '../../core/components/menu/card/models/card-interface';
+import { BehaviorSubject } from 'rxjs';
+import { CardInterface } from '../../interfaces/card-interface';
 
 @Injectable({
   providedIn: 'root'

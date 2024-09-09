@@ -1,6 +1,8 @@
 
 
 export interface CardInterface {
+    flat(): any;
+    forEach(arg0: (product: any) => void): unknown;
     title:string;
     subTitle:string;
     imgLogo:string;
@@ -8,7 +10,7 @@ export interface CardInterface {
     desc: string;
     price:number;
     sale: number;
-    category:"fastFoods" | "Ichimliklar" | "setBurger";
+    category:string
     id:number 
 }
 export interface ProductInCart extends CardInterface {

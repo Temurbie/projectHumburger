@@ -3,9 +3,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { CardInterface, ProductInCart } from './models/card-interface';
-import { AnimationService } from '../../../../share/animationService/animation.service';
-import { CartService } from '../../cart/cart.service';
+import { CardInterface, ProductInCart } from '../../../interfaces/card-interface';
+import { AnimationService } from '../../../service/animationService/animation.service';
+import { CartService } from '../../../service/cart/cart.service';
 import { AnimateDirective } from '../../../directives/animate.directive';
 
 @Component({
@@ -27,7 +27,9 @@ export class CardComponent implements OnInit {
   @Input() card!: CardInterface;
 
   ngOnInit(): void {
-    ;
+   
+    console.log(`cardComponentdan`, this.card.id);
+    
   }
 
   addCard(card: CardInterface) {

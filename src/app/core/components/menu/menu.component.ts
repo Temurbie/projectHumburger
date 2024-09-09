@@ -1,10 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import {MatTabsModule} from '@angular/material/tabs';
 import { CommonModule } from '@angular/common';
-import { Subject, takeUntil } from 'rxjs';
+import { map, Subject } from 'rxjs';
 
-import { MenuSerService } from './service/menu-ser.service';
-import { CardInterface } from './card/models/card-interface';
+import { MenuSerService } from '../../service/menu/menu-ser.service';
+import { CardInterface } from '../../interfaces/card-interface';
 import { CardComponent } from './card/card.component';
 
 
@@ -21,33 +21,33 @@ import { CardComponent } from './card/card.component';
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
-export class MenuComponent implements OnInit, OnDestroy{
+export class MenuComponent implements OnInit{
+  //injects
+  menuService = inject(MenuSerService)
 
-  constructor(private menuService: MenuSerService){}
-
+  //variables
   fastFoods:CardInterface[] = [];
   ichimliklar:CardInterface[] = [];
   setBurgers:CardInterface[] = [];
-  sub$ = new Subject;
-
-  ngOnInit(): void {
+  
+  
+  //functions and methods
+  ngOnInit(){
+  this.getProducts();
+  };
+  getProducts(): void{
     this.menuService.cardHamburger$.
-    pipe(takeUntil(this.sub$))
-    .subscribe((humburCard : CardInterface[])=>{
-      this.fastFoods = humburCard.filter(product => product.category === "fastFoods"),
-      this.ichimliklar =humburCard.filter(product => product.category === "Ichimliklar"),
-      this.setBurgers = humburCard.filter(product => product.category === "setBurger")
+    pipe(
+      map(prod =>{
+        return prod.flat();
+      })
+    )
+    .subscribe((prod : CardInterface[])=>{
+      this.fastFoods = prod.filter(product => product.category === "fastFoods")
+      this.ichimliklar =prod.filter(product => product.category === "Ichimliklar"),
+      this.setBurgers = prod.filter(product => product.category === "setBurger")
     })
-
-    
   }
-  ngOnDestroy(): void {
-    this.sub$.next(null);
-    this.sub$.complete
-  }
- 
 }
-  
-  
 
 

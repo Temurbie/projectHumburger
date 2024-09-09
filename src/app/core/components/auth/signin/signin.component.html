@@ -1,7 +1,31 @@
 <div class="signInWrapper">
     <div class="container">
-        <div class="signIn">
-            
+      <div class="singPage mb-5">
+        <div class="signForm">
+          <h3>Hisobga Kirish</h3>
+        <form action="" [formGroup]="signInForm" (ngSubmit)="onSubmitSignIn()" >
+          <div class="row">
+            <div class="col-12">
+              <input class="form-control mt-5" type="text" name="email" id="email" placeholder="Email" formControlName="email"
+              [ngClass]="{'error': f.email.errors?.['required'] && f.email.touched}"
+              >
+              <div *ngIf="f.email.touched && f.email.errors?.['required']">
+                <span class="errorSpan"  *ngIf="f.email.touched">Tuldiring</span>
+              </div>
+            </div>
+            <div class="col-12">
+              <input class="form-control mt-5" type="text" name="password" id="password" placeholder="Parol" formControlName="password"
+              [ngClass]="{'error': f.password.errors?.['required']  && f.password.touched}">
+              <div *ngIf="f.password.touched && f.password.errors?.['required']">
+                <span class="errorSpan">Tuldiring</span>
+              </div>
+            </div>
+          </div>
+          <div class="buttonSignIng text-center">
+            <button type="submit" class="btn btn-primary mt-5">Kirish</button>
+          </div>
+        </form>
         </div>
+      </div>
     </div>
 </div>

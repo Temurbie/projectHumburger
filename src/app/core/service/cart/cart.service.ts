@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import { CardInterface, ProductInCart } from '../menu/card/models/card-interface';
+import {  ProductInCart } from '../../interfaces/card-interface';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -23,6 +23,7 @@ export class CartService implements OnInit {
       pro.quantity += incrementValue
     }
   }
+
   dinc(product : ProductInCart){
     const decrementValue = 1;
     let  decrement = this.cartProducts.find(p => p.id === product.id)
@@ -33,7 +34,6 @@ export class CartService implements OnInit {
   }
 
   addCartProduct(product : ProductInCart){
-    // debugger
     let foundIndex : number | null;
     const findIdProduct = this.cartProducts
     .find((pro, index) => {
@@ -52,7 +52,7 @@ export class CartService implements OnInit {
     this.cartProducts$.next(this.cartProducts);
   }
 
-  getItems(){
+  getItems(){  
     return this.cartProducts
   }
 } 
