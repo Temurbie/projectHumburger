@@ -3,7 +3,7 @@ import { AnimateDirective } from '../../../directives/animate.directive';
 import { gsap } from 'gsap';
 import SplitType from 'split-type'
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { FormBuilder,  Validators, ReactiveFormsModule, ValidatorFn, AbstractControl, ValidationErrors, AbstractControlOptions } from '@angular/forms';
+import { FormBuilder,  Validators, ReactiveFormsModule, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../service/auth/auth.service';
 @Component({

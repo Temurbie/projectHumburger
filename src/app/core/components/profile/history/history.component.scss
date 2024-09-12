@@ -1,0 +1,17 @@
+.profile-wrapper{
+    background-color: #393f47;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    margin: 5px auto;
+    min-height: calc(100vh - 120px);
+    padding: 40px;
+    .order{
+        // padding: 15px;
+        color: #fff;
+        text-align: center;
+    }
+    .imgHistory{
+        width: 35px;
+        height: 35px;
+    }
+}

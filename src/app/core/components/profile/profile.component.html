@@ -1,14 +1,15 @@
-<!-- <mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened="true">Drawer content</mat-drawer>
-    <mat-drawer-content>Main content</mat-drawer-content>
-  </mat-drawer-container> -->
+<div class="content-wrapper">
+  <div class="container">
+    <div class="components">
+      <app-lists class="app-lists"></app-lists>
+      <app-user *ngIf="!isHelp" class="app-user"></app-user>
+      <app-menu  class="app-menu"></app-menu>
 
 
-
-
-
-
-<a routerLink="history">history</a>
-<h1>test</h1>
-<button class="btn btn-danger" (click)="logOut()">LogOut</button>
-<!-- <router-outlet></router-outlet> -->
+       <app-promo class="app-promo"></app-promo>
+       <app-invite class="app-invite"></app-invite>
+       <app-support *ngIf="isHelp" class="app-support" [ngClass]=support></app-support>
+       <app-history class="app-history"></app-history>
+    </div>
+  </div>
+</div>

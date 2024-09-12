@@ -1,0 +1,112 @@
+
+
+// .profile-wrapper{
+//     min-height: calc(100vh - 120px);
+//     background-color: #000;
+//     .side-nav{
+//         // border: 2px solid rgb(154, 151, 151);
+//         background-color: #393f47;
+//         border-radius: 50px;
+//         border: 1px solid #fff;
+//         min-width: 350px;
+//         min-height: calc(100vh - 200px);
+//         .links{
+//             min-height: calc(100vh - 120px); 
+//             display: flex;
+//             flex-direction: column;
+//             align-items: center;
+//             justify-content: space-evenly; /* Linklarni teng taqsimlash */
+//         }
+//         .links a {
+//             text-decoration: none;
+//             font-size: 16px; 
+//             margin-bottom: 5px; 
+            
+//             font-weight: normal;
+//             color: #fff;
+//         }
+        
+//         .links a:hover {
+//             color: #007BFF;
+//         }
+//     }
+//     .content-wrapper{
+//         display: flex;
+//         flex-wrap: wrap; /* Kartochkalarni bir qatorda joylashtirish */
+//         gap: 20px; /* Kartochkalar o'rtasidagi bo'shliq */
+//         .main{
+//             background-color: #393f47;
+//             border: 1px solid #fff;
+//             border-radius: 50px;
+//             margin: 5px auto;
+//             .main-contnent{
+//                 padding: 75px;
+//                 text-align: center;
+//                 color: #fff;
+//                 // border: 1px solid #fff;
+//                 .user-img{
+//                     border-radius: 50%;
+//                     border: #ffffff 1px solid;
+//                     max-width: 200px;
+//                     max-height: 200px;
+//                     padding: 15px;
+//                 }
+//             }
+//             .user-info{
+//                 display: flex;
+//                 justify-content: space-between;
+//                 align-items: center;
+//                 flex-direction: column;
+//                 padding: 15px;
+//                 .user-number {
+//                     margin-right: 10px;
+//                 }
+//                 .reg-data {
+//                     margin-left: 10px;
+//                 }
+//             }
+//         }
+//     }
+//     .profile-menu{
+//         background-color: #393f47;
+//         border: 1px solid #fff;
+//         border-radius: 50px;
+//         padding: 75px;
+//          .menu-wrapper{
+//             text-align: center;
+//             color: #fff;
+//             font-size: 15px;
+//          }
+//          .menu-list{
+//             display: flex;
+//             flex-direction: column;
+//             img{
+//             width: 32px;
+//             height: 32px;
+//             border-radius: 50px;
+//             border: 1px solid #fff;
+//             }
+//             span{
+//                 margin-left: 50px;
+//             }
+//             p{
+//                 display: flex;
+//                 justify-content: space-between;
+//             }
+//          }
+//     }
+// }
+.content-wrapper{
+    background-color: #000;
+    .components{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        flex-wrap: wrap;
+        // align-items: stretch;
+    }
+    .app-lists{
+        
+    }
+}

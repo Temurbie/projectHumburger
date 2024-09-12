@@ -1,0 +1,42 @@
+
+
+.profile-wrapper{
+    .content-wrapper{
+        display: flex;
+        flex-wrap: wrap; /* Kartochkalarni bir qatorda joylashtirish */
+        gap: 20px; /* Kartochkalar o'rtasidagi bo'shliq */
+        .main{
+            background-color: #393f47;
+            border: 1px solid #fff;
+            border-radius: 50px;
+            margin: 5px auto;
+            min-height: calc(100vh - 120px);
+            .main-contnent{
+                padding: 75px;
+                text-align: center;
+                color: #fff;
+                // border: 1px solid #fff;
+                .user-img{
+                    border-radius: 50%;
+                    border: #ffffff 1px solid;
+                    max-width: 200px;
+                    max-height: 200px;
+                    padding: 15px;
+                }
+            }
+            .user-info{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+                padding: 15px;
+                .user-number {
+                    margin-right: 10px;
+                }
+                .reg-data {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
